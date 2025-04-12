@@ -24,6 +24,10 @@ public class Banco {
         this.listCuentas = new LinkedList<Cuenta>();
     }
 
+    /// Metodos propios
+
+    
+
     /// Metodos getter y setter
 
     public String getNombre() {
