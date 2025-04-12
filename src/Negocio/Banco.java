@@ -3,7 +3,9 @@ package Negocio;
 import java.util.LinkedList;
 
 public class Banco {
+
     /// Atributos
+
     private String nombre;
     private String direccion;
     private LinkedList<Cuenta> listCuentas;
