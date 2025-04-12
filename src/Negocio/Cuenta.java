@@ -4,7 +4,7 @@ public class Cuenta {
 
     /// Atributos
 
-    private long numero;
+    private final long numero;
     private String tipoCuenta;
     private double saldo;
 
@@ -45,10 +45,6 @@ public class Cuenta {
         return numero;
     }
 
-    public void setNumero(long numero) {
-        this.numero = numero;
-    }
-
     public String getTipoCuenta() {
         return tipoCuenta;
     }
@@ -59,9 +55,5 @@ public class Cuenta {
 
     public double getSaldo() {
         return saldo;
-    }
-
-    public void setSaldo(double saldo) {
-        this.saldo = saldo;
     }
 }
