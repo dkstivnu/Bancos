@@ -29,7 +29,7 @@ public class Banco {
 
     public boolean addCuenta(Cuenta cuenta) {
         // Se necesita un objeto AtomicBoolean debido a que se quiere usar dentro de
-        // una fun lamba, asi que no se puede usar el tipo primitivo.
+        // una fun lambda, asi que no se puede usar el tipo primitivo.
         AtomicBoolean cuentaExists = new AtomicBoolean(false);
 
         listCuentas.forEach(cuentaL -> {
@@ -42,6 +42,14 @@ public class Banco {
             this.listCuentas.add(cuenta);
 
         return !cuentaExists.get();
+    }
+
+    public Cuenta searchCuenta(long numeroCuenta) {
+        for (Cuenta cuenta : listCuentas) {
+            if (cuenta.getNumero() == numeroCuenta)
+                return cuenta;
+        }
+        return new Cuenta();
     }
 
     /// Metodos getter y setter
