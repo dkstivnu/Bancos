@@ -39,6 +39,14 @@ public class Cuenta {
         }
     }
 
+    @Override
+    public String toString() {
+        return "\n------ Cuenta " + numero + " ------"+
+                "\nNumero de cuenta: " + numero +
+                "\nTipo de cuenta: " + tipoCuenta +
+                "\nSaldo de la cuenta: " + saldo;
+    }
+
     /// Metodos setter y getter
 
     public long getNumero() {
