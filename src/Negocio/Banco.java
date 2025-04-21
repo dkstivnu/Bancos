@@ -56,7 +56,15 @@ public class Banco {
         listCuentas.removeIf(cuenta -> cuenta.getNumero() == numeroCuenta);
     }
 
-
+    public String imprimirCuentas(){
+        StringBuilder info = new StringBuilder();
+        info.append("------- Lista de cuentas ------- \n");
+        for (Cuenta cuenta : listCuentas) {
+            info.append("------- Cuenta ").append(cuenta.getNumero()).append(" -----\n");
+            info.append(cuenta).append("\n");
+        }
+        return info.toString();
+    }
 
     /// Metodos getter y setter
 
