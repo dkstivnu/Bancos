@@ -52,6 +52,12 @@ public class Banco {
         return new Cuenta();
     }
 
+    public void deleteCuenta(long numeroCuenta) {
+        listCuentas.removeIf(cuenta -> cuenta.getNumero() == numeroCuenta);
+    }
+
+
+
     /// Metodos getter y setter
 
     public String getNombre() {
