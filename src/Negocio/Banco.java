@@ -44,12 +44,15 @@ public class Banco {
         return !cuentaExists.get();
     }
 
-    public Cuenta searchCuenta(long numeroCuenta) {
-        for (Cuenta cuenta : listCuentas) {
+    public int searchCuenta(long numeroCuenta) {
+        for (int i = 0; i < listCuentas.size(); i++) {
+            Cuenta cuenta = listCuentas.get(i);
             if (cuenta.getNumero() == numeroCuenta)
-                return cuenta;
+                //Devuelve el indice que tiene asginado la cuenta
+                return i;
         }
-        return new Cuenta();
+
+        return -1;
     }
 
     public void deleteCuenta(long numeroCuenta) {
