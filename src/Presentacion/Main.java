@@ -75,7 +75,7 @@ public class Main {
                     if (indice == -1) System.out.println("** ERROR ** La cuenta que no existe");
                     else {
                         banco.getListCuentas().get(indice).consignar(monto);
-                        System.out.println("Se consigo correctamente " + monto + " $ de la cuenta" + numeroCuenta);
+                        System.out.println("Se consigo correctamente " + monto + " $ de la cuenta " + numeroCuenta);
                     }
                 }
                 break;
@@ -92,7 +92,7 @@ public class Main {
                     if (indice == -1) System.out.println("** ERROR ** La cuenta que no existe");
                     else {
                         if (banco.getListCuentas().get(indice).retirar(monto)) {
-                            System.out.println("Se retiro correctamente " + monto + " $ de la cuenta" + numeroCuenta);
+                            System.out.println("Se retiro correctamente " + monto + " $ de la cuenta " + numeroCuenta);
                         } else {
                             System.out.println("No puedes retirar un monto mayor al saldo de la cuenta");
                         }
@@ -123,7 +123,7 @@ public class Main {
             }
             if (monto == 0) {
                 System.out.println("** ERROR ** El monto no puede ser cero");
-                System.out.println("Ingrese el numero de cuenta nuevamente: ");
+                System.out.println("Ingrese el monto nuevamente: ");
             }
 
         } while (0 < monto);
@@ -138,9 +138,9 @@ public class Main {
             saldo = sc.nextDouble();
 
             if (saldo == 0) {
-                System.out.println("** ERROR ** Numero de cuenta no puede ser cero");
+                System.out.println("** ERROR ** Saldo de la cuenta no puede ser cero");
                 System.out.println("Ingrese el numero de cuenta nuevamente: ");
-            }else if (saldo < 0) {
+            } else if (saldo < 0) {
                 System.out.println("** ERROR ** Saldo de cuenta negativo");
                 System.out.println("Ingrese el saldo de la cuenta nuevamente: ");
             } else if (saldo < 50000) {
