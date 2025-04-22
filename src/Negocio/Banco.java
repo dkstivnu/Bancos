@@ -16,7 +16,7 @@ public class Banco {
     public Banco(String nombre, String direccion, LinkedList<Cuenta> listCuentas) {
         this.nombre = nombre;
         this.direccion = direccion;
-        this.listCuentas = new LinkedList<Cuenta>();
+        this.listCuentas = listCuentas;
     }
 
     public Banco() {
