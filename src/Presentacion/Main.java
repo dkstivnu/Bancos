@@ -127,7 +127,7 @@ public class Main {
                 System.out.println("Ingrese el monto nuevamente: ");
             }
 
-        } while (0 < monto);
+        } while (0 > monto);
 
         return monto;
     }
@@ -150,7 +150,7 @@ public class Main {
             }
 
 
-        } while (0 < saldo );
+        } while (50000 >= saldo);
 
         return saldo;
     }
@@ -171,7 +171,7 @@ public class Main {
                 System.out.println("Ingrese el numero de cuenta nuevamente: ");
             }
 
-        } while (0 < numero);
+        } while (0 > numero);
 
         return numero;
     }
