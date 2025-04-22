@@ -9,7 +9,9 @@ public class Main {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        Banco banco = new Banco();
+        Banco banco = new Banco("Compañia de Financiamiento NU",
+                "Crr 12 #3A-4",
+                new LinkedList<>());
 
         int opcion;
 
