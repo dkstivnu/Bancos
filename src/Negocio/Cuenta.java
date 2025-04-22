@@ -44,7 +44,7 @@ public class Cuenta {
         return "\n------ Cuenta " + numero + " ------"+
                 "\nNumero de cuenta: " + numero +
                 "\nTipo de cuenta: " + tipoCuenta +
-                "\nSaldo de la cuenta: " + saldo;
+                "\nSaldo de la cuenta: " + saldo+ " $";
     }
 
     /// Metodos setter y getter
