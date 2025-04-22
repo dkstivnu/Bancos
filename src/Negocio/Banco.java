@@ -48,10 +48,9 @@ public class Banco {
         for (int i = 0; i < listCuentas.size(); i++) {
             Cuenta cuenta = listCuentas.get(i);
             if (cuenta.getNumero() == numeroCuenta)
-                //Devuelve el indice que tiene asginado la cuenta
+                //Devuelve el índice que tiene relacion con la cuenta
                 return i;
         }
-
         return -1;
     }
 
