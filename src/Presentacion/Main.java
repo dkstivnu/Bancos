@@ -127,7 +127,7 @@ public class Main {
                 System.out.println("Ingrese el monto nuevamente: ");
             }
 
-        } while (0 > monto);
+        } while (0 >= monto);
 
         return monto;
     }
