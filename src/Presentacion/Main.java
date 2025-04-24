@@ -60,7 +60,12 @@ public class Main {
                     System.out.println("Ingrese el numero de la cuenta que desea eliminar: ");
                     long numeroCuenta = getNumeroCuenta(sc);
 
-                    banco.deleteCuenta(numeroCuenta);
+
+                    if (banco.searchCuenta(numeroCuenta) != -1) {
+                        banco.deleteCuenta(numeroCuenta);
+                    }else {
+                        System.out.println("** ERROR ** La cuenta que no existe");
+                    }
                 }
                 break;
                 case 4: {
@@ -76,7 +81,7 @@ public class Main {
                     if (indice == -1) System.out.println("** ERROR ** La cuenta que no existe");
                     else {
                         banco.getListCuentas().get(indice).consignar(monto);
-                        System.out.println("Se consigo correctamente " + monto + " $ de la cuenta " + numeroCuenta);
+                        System.out.println("Se consigno correctamente " + monto + " $ de la cuenta " + numeroCuenta);
                     }
                 }
                 break;
@@ -141,9 +146,11 @@ public class Main {
             if (saldo == 0) {
                 System.out.println("** ERROR ** Saldo de la cuenta no puede ser cero");
                 System.out.println("Ingrese el numero de cuenta nuevamente: ");
+
             } else if (saldo < 0) {
                 System.out.println("** ERROR ** Saldo de cuenta negativo");
                 System.out.println("Ingrese el saldo de la cuenta nuevamente: ");
+
             } else if (saldo < 50000) {
                 System.out.println("** ERROR ** Saldo de cuenta insuficiente para su creacion");
                 System.out.println("Ingrese el saldo de la cuenta nuevamente: ");
