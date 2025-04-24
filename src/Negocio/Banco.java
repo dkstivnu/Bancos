@@ -28,20 +28,12 @@ public class Banco {
     /// Metodos propios
 
     public boolean addCuenta(Cuenta cuenta) {
-        // Se necesita un objeto AtomicBoolean debido a que se quiere usar dentro de
-        // una fun lambda, asi que no se puede usar el tipo primitivo.
-        AtomicBoolean cuentaExists = new AtomicBoolean(false);
 
-        listCuentas.forEach(cuentaL -> {
-                    if (cuentaL.getNumero() == cuenta.getNumero())
-                        cuentaExists.set(true);
-                }
-        );
-
-        if (!cuentaExists.get())
-            this.listCuentas.add(cuenta);
-
-        return !cuentaExists.get();
+        if (searchCuenta(cuenta.getNumero()) == -1) {
+            listCuentas.add(cuenta);
+            return true;
+        }
+        return false;
     }
 
     public int searchCuenta(long numeroCuenta) {
