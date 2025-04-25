@@ -1,7 +1,6 @@
 package Negocio;
 
 import java.util.LinkedList;
-import java.util.concurrent.atomic.AtomicBoolean;
 
 public class Banco {
 
@@ -22,7 +21,7 @@ public class Banco {
     public Banco() {
         this.nombre = "";
         this.direccion = "";
-        this.listCuentas = new LinkedList<Cuenta>();
+        this.listCuentas = new LinkedList<>();
     }
 
     /// Metodos propios
