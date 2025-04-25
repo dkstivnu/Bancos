@@ -157,7 +157,7 @@ public class Main {
             }
 
 
-        } while (50000 >= saldo);
+        } while (saldo < 50000);
 
         return saldo;
     }
