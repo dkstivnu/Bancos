@@ -9,6 +9,7 @@ public class Banco {
     private String nombre;
     private String direccion;
     private LinkedList<Cuenta> listCuentas;
+    private LinkedList<AreaFuncional> listAreaFuncional;
 
     /// Constructores
 
@@ -16,12 +17,14 @@ public class Banco {
         this.nombre = nombre;
         this.direccion = direccion;
         this.listCuentas = listCuentas;
+        this.listAreaFuncional = new LinkedList<>();
     }
 
     public Banco() {
         this.nombre = "";
         this.direccion = "";
         this.listCuentas = new LinkedList<>();
+        this.listAreaFuncional = new LinkedList<>();
     }
 
     /// Metodos propios
@@ -73,5 +76,25 @@ public class Banco {
 
     public void setListCuentas(LinkedList<Cuenta> listCuentas) {
         this.listCuentas = listCuentas;
+    }
+
+    public LinkedList<AreaFuncional> getListAreaFuncional() {
+        return listAreaFuncional;
+    }
+
+    public void setListAreaFuncional(LinkedList<AreaFuncional> listAreaFuncional) {
+        this.listAreaFuncional = listAreaFuncional;
+    }
+
+    /// Relacion de composicion
+
+    public void addAreaFuncional(int numero, String nombre) {
+        //La clase Banco solo crea el objeto área funcional;
+        final AreaFuncional areaFuncional = new AreaFuncional(nombre, numero);
+
+        boolean existeArea = listAreaFuncional.contains(areaFuncional);
+
+        if (!existeArea)
+            listAreaFuncional.add(areaFuncional);
     }
 }
