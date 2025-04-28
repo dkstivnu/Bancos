@@ -135,12 +135,12 @@ public class Main {
                     System.out.println("Ingrese el codigo que desea buscar: ");
                     int codigo = (int) getNumero(sc);
 
-                    int indice = banco.searchCuenta(codigo);
+                    int indice = banco.searchAreaFuncional(codigo);
 
                     if (indice != -1)
                         System.out.println(banco.getListAreaFuncional().get(indice));
                     else
-                        System.out.println("** ERROR ** La cuenta que no existe");
+                        System.out.println("** ERROR ** La area funcional que no existe");
                 }
                 break;
                 case 9: {
@@ -150,7 +150,7 @@ public class Main {
 
                     if (banco.deleteAreaFuncional(codigo)) {
                         System.out.println("Se elimino el area funcional correctamente");
-                    }else{
+                    } else {
                         System.out.println("La area funcional no existe");
                     }
                 }
@@ -161,6 +161,12 @@ public class Main {
                         System.out.println(area);
                     }
                 }
+                break;
+                case 0:
+                    System.out.println("Cerrando el programa...");
+                    break;
+                default:
+                    System.out.println("La opcion no es valida");
             }
 
         } while (opcion != 0);

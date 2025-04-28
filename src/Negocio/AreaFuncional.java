@@ -9,12 +9,12 @@ public class AreaFuncional {
 
     /// Constructores
 
-    AreaFuncional(String nombre, int codigo) {
+    public AreaFuncional(String nombre, int codigo) {
         this.nombre = nombre;
         this.codigo = codigo;
     }
 
-    AreaFuncional() {
+    public AreaFuncional() {
         this.nombre = "";
         this.codigo = -1;
     }
