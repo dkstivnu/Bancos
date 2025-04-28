@@ -34,4 +34,11 @@ public class AreaFuncional {
     public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
+
+    @Override
+    public String toString() {
+        return "\n------- Area Funcional "+ codigo +"------"+
+                "\nNombre: " + nombre + "\nCodigo: " + codigo + "\n";
+
+    }
 }
