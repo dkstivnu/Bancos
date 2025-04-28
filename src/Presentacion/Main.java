@@ -1,5 +1,6 @@
 package Presentacion;
 
+import Negocio.AreaFuncional;
 import Negocio.Banco;
 import Negocio.Cuenta;
 
@@ -11,7 +12,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Banco banco = new Banco("Compañia de Financiamiento NU",
-                "Crr 12 #3A-4",
+                "Cr 12 #3A-4",
                 new LinkedList<>());
 
         int opcion;
@@ -26,7 +27,7 @@ public class Main {
                 case 1: {
                     System.out.println("****** Creacion de cuenta *****");
                     System.out.println("Ingrese el numero de cuenta: ");
-                    long numeroCuenta = getNumeroCuenta(sc);
+                    long numeroCuenta = getNumero(sc);
 
                     System.out.println("Ingrese el tipo de cuenta: ");
                     String tipoCuenta = sc.next();
@@ -46,7 +47,7 @@ public class Main {
                 case 2: {
                     System.out.println("****** Buscar cuenta *****");
                     System.out.println("Ingrese el numero de la cuenta que desea buscar: ");
-                    long numeroCuenta = getNumeroCuenta(sc);
+                    long numeroCuenta = getNumero(sc);
 
                     int indice = banco.searchCuenta(numeroCuenta);
 
@@ -58,12 +59,12 @@ public class Main {
                 case 3: {
                     System.out.println("****** Eliminar cuenta *****");
                     System.out.println("Ingrese el numero de la cuenta que desea eliminar: ");
-                    long numeroCuenta = getNumeroCuenta(sc);
+                    long numeroCuenta = getNumero(sc);
 
 
                     if (banco.searchCuenta(numeroCuenta) != -1) {
                         banco.deleteCuenta(numeroCuenta);
-                    }else {
+                    } else {
                         System.out.println("** ERROR ** La cuenta que no existe");
                     }
                 }
@@ -71,7 +72,7 @@ public class Main {
                 case 4: {
                     System.out.println("****** Consignar saldo *****");
                     System.out.println("Ingrese el numero de la cuenta: ");
-                    long numeroCuenta = getNumeroCuenta(sc);
+                    long numeroCuenta = getNumero(sc);
 
                     System.out.println("Ingrese el monto que desea consignar: ");
                     double monto = getMonto(sc);
@@ -88,7 +89,7 @@ public class Main {
                 case 5: {
                     System.out.println("****** Retirar saldo *****");
                     System.out.println("Ingrese el numero de cuenta: ");
-                    long numeroCuenta = getNumeroCuenta(sc);
+                    long numeroCuenta = getNumero(sc);
 
                     System.out.println("Ingrese el saldo que desea retirar: ");
                     double monto = getMonto(sc);
@@ -112,6 +113,54 @@ public class Main {
                     }
                 }
                 break;
+                case 7: {
+                    System.out.println("****** Agregar Area Funcional *****");
+
+                    System.out.println("Ingrese el codigo de la area funcional: ");
+                    int codigo = (int) getNumero(sc);
+
+                    System.out.println("Ingrese el nombre que desea para la area funcional: ");
+                    String nombre = sc.next();
+
+                    if (banco.addAreaFuncional(codigo, nombre)) {
+                        System.out.println("Se agrego el area funcional correctamente");
+                    } else {
+                        System.out.println("** ERROR ** El area funcional ya existe");
+                    }
+
+                }
+                break;
+                case 8: {
+                    System.out.println("****** Buscar area funcional *****");
+                    System.out.println("Ingrese el codigo que desea buscar: ");
+                    int codigo = (int) getNumero(sc);
+
+                    int indice = banco.searchCuenta(codigo);
+
+                    if (indice != -1)
+                        System.out.println(banco.getListAreaFuncional().get(indice));
+                    else
+                        System.out.println("** ERROR ** La cuenta que no existe");
+                }
+                break;
+                case 9: {
+                    System.out.println("****** Eliminar area funcional *****");
+                    System.out.println("Ingrese el codigo de la area funcional que desea eliminar: ");
+                    int codigo = (int) getNumero(sc);
+
+                    if (banco.deleteAreaFuncional(codigo)) {
+                        System.out.println("Se elimino el area funcional correctamente");
+                    }else{
+                        System.out.println("La area funcional no existe");
+                    }
+                }
+                break;
+                case 10: {
+                    System.out.println("******* Lista de areas funcionales ********");
+                    for (AreaFuncional area : banco.getListAreaFuncional()) {
+                        System.out.println(area);
+                    }
+                }
             }
 
         } while (opcion != 0);
@@ -162,7 +211,7 @@ public class Main {
         return saldo;
     }
 
-    private static long getNumeroCuenta(Scanner sc) {
+    private static long getNumero(Scanner sc) {
 
         long numero;
 
@@ -170,12 +219,12 @@ public class Main {
             numero = sc.nextLong();
 
             if (numero < 0) {
-                System.out.println("** ERROR ** Numero de cuenta negativo");
-                System.out.println("Ingrese el numero de cuenta nuevamente: ");
+                System.out.println("** ERROR ** Numero negativo");
+                System.out.println("Ingrese el numero nuevamente: ");
             }
             if (numero == 0) {
-                System.out.println("** ERROR ** Numero de cuenta no puede ser cero");
-                System.out.println("Ingrese el numero de cuenta nuevamente: ");
+                System.out.println("** ERROR ** Numero no puede ser cero");
+                System.out.println("Ingrese el numero nuevamente: ");
             }
 
         } while (0 > numero);
@@ -191,6 +240,10 @@ public class Main {
         System.out.println("4 - Consignar");
         System.out.println("5 - Retirar");
         System.out.println("6 - Mostrar la lista de cuentas");
+        System.out.println("7 - Adicionar Area Funcional");
+        System.out.println("8 - Buscar Area Funcional");
+        System.out.println("9 - Eliminar Area Funcional");
+        System.out.println("10 - Mostrar areas funcionales");
         System.out.println("0 - Salir");
         System.out.println("------ MENU ------");
     }
