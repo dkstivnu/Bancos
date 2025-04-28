@@ -92,9 +92,7 @@ public class Banco {
         //La clase Banco solo crea el objeto área funcional;
         final AreaFuncional areaFuncional = new AreaFuncional(nombre, numero);
 
-        boolean existeArea = listAreaFuncional.contains(areaFuncional);
-
-        if (!existeArea)
+        if (!listAreaFuncional.contains(areaFuncional))
             listAreaFuncional.add(areaFuncional);
     }
 }
