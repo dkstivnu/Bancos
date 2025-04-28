@@ -88,11 +88,14 @@ public class Banco {
 
     /// Relacion de composicion
 
-    public void addAreaFuncional(int numero, String nombre) {
+    public boolean addAreaFuncional(int numero, String nombre) {
         //La clase Banco solo crea el objeto área funcional;
         final AreaFuncional areaFuncional = new AreaFuncional(nombre, numero);
 
-        if (!listAreaFuncional.contains(areaFuncional))
+        if (!listAreaFuncional.contains(areaFuncional)) {
             listAreaFuncional.add(areaFuncional);
+            return true;
+        }
+        return false;
     }
 }
