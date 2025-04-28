@@ -5,18 +5,18 @@ public class AreaFuncional {
     /// Atributos
 
     private String nombre;
-    private int direccion;
+    private int codigo;
 
     /// Constructores
 
-    AreaFuncional(String nombre, int direccion) {
+    AreaFuncional(String nombre, int codigo) {
         this.nombre = nombre;
-        this.direccion = direccion;
+        this.codigo = codigo;
     }
 
     AreaFuncional() {
         this.nombre = "";
-        this.direccion = -1;
+        this.codigo = -1;
     }
 
     public String getNombre() {
@@ -27,11 +27,11 @@ public class AreaFuncional {
         this.nombre = nombre;
     }
 
-    public int getDireccion() {
-        return direccion;
+    public int getCodigo() {
+        return codigo;
     }
 
-    public void setDireccion(int direccion) {
-        this.direccion = direccion;
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
     }
 }

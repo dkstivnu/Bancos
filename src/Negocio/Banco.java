@@ -1,5 +1,6 @@
 package Negocio;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class Banco {
@@ -88,12 +89,32 @@ public class Banco {
 
     /// Relacion de composicion
 
-    public boolean addAreaFuncional(int numero, String nombre) {
+    public boolean addAreaFuncional(int codigo, String nombre) {
         //La clase Banco solo crea el objeto área funcional;
-        final AreaFuncional areaFuncional = new AreaFuncional(nombre, numero);
+        final AreaFuncional areaFuncional = new AreaFuncional(nombre, codigo);
 
         if (!listAreaFuncional.contains(areaFuncional)) {
             listAreaFuncional.add(areaFuncional);
+            return true;
+        }
+        return false;
+    }
+
+    public int searchAreaFuncional(int codigo) {
+        for (int i = 0; i < listAreaFuncional.size(); i++) {
+            AreaFuncional area = listAreaFuncional.get(i);
+            if (area.getCodigo() == codigo)
+                //Devuelve el índice que tiene relacion con el área funcional
+                return i;
+        }
+        return -1;
+
+    }
+
+    public boolean deleteAreaFuncional(int codigo) {
+        int indiceArea = searchAreaFuncional(codigo);
+        if (indiceArea != -1) {
+            listAreaFuncional.remove(indiceArea);
             return true;
         }
         return false;
