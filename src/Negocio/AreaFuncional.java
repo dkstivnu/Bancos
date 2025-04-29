@@ -16,7 +16,7 @@ public class AreaFuncional {
 
     public AreaFuncional() {
         this.nombre = "";
-        this.codigo = -1;
+        this.codigo = 0;
     }
 
     public String getNombre() {

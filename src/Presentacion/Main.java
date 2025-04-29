@@ -26,6 +26,7 @@ public class Main {
             switch (opcion) {
                 case 1: {
                     System.out.println("****** Creacion de cuenta *****");
+
                     System.out.println("Ingrese el numero de cuenta: ");
                     long numeroCuenta = getNumero(sc);
 
@@ -46,18 +47,19 @@ public class Main {
                 break;
                 case 2: {
                     System.out.println("****** Buscar cuenta *****");
+
                     System.out.println("Ingrese el numero de la cuenta que desea buscar: ");
                     long numeroCuenta = getNumero(sc);
 
                     int indice = banco.searchCuenta(numeroCuenta);
 
-                    if (indice == -1) System.out.println("** ERROR ** La cuenta que no existe");
-
+                    if (indice == -1) System.out.println("** ERROR ** La cuenta no existe");
                     else System.out.println(banco.getListCuentas().get(indice));
                 }
                 break;
                 case 3: {
                     System.out.println("****** Eliminar cuenta *****");
+
                     System.out.println("Ingrese el numero de la cuenta que desea eliminar: ");
                     long numeroCuenta = getNumero(sc);
 
@@ -71,6 +73,7 @@ public class Main {
                 break;
                 case 4: {
                     System.out.println("****** Consignar saldo *****");
+
                     System.out.println("Ingrese el numero de la cuenta: ");
                     long numeroCuenta = getNumero(sc);
 
@@ -109,7 +112,7 @@ public class Main {
                 case 6: {
                     System.out.println("****** Lista de todas las cuentas *****");
                     for (Cuenta cuenta : banco.getListCuentas()) {
-                        System.out.println(cuenta);
+                        System.out.println(cuenta.toString());
                     }
                 }
                 break;
@@ -132,6 +135,7 @@ public class Main {
                 break;
                 case 8: {
                     System.out.println("****** Buscar area funcional *****");
+
                     System.out.println("Ingrese el codigo que desea buscar: ");
                     int codigo = (int) getNumero(sc);
 
@@ -140,11 +144,12 @@ public class Main {
                     if (indice != -1)
                         System.out.println(banco.getListAreaFuncional().get(indice));
                     else
-                        System.out.println("** ERROR ** La area funcional que no existe");
+                        System.out.println("** ERROR ** La area funcional no existe");
                 }
                 break;
                 case 9: {
                     System.out.println("****** Eliminar area funcional *****");
+
                     System.out.println("Ingrese el codigo de la area funcional que desea eliminar: ");
                     int codigo = (int) getNumero(sc);
 
@@ -233,7 +238,7 @@ public class Main {
                 System.out.println("Ingrese el numero nuevamente: ");
             }
 
-        } while (0 > numero);
+        } while (0 >= numero);
 
         return numero;
     }

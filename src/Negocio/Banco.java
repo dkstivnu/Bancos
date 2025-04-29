@@ -1,6 +1,7 @@
 package Negocio;
 
 import java.util.LinkedList;
+import java.util.Objects;
 
 public class Banco {
 
@@ -108,6 +109,15 @@ public class Banco {
         }
         return -1;
 
+    }
+
+    public int searchAreaFuncional(String nombreAreaFuncional) {
+        for (int i = 0; i < listAreaFuncional.size();i++) {
+            AreaFuncional area = listAreaFuncional.get(i);
+            if (Objects.equals(area.getNombre(), nombreAreaFuncional))
+                return i;
+        }
+        return -1;
     }
 
     public boolean deleteAreaFuncional(int codigo) {
