@@ -93,12 +93,17 @@ public class Banco {
         //La clase Banco solo crea el objeto área funcional;
         final AreaFuncional areaFuncional = new AreaFuncional(nombre, codigo);
 
-        if (!listAreaFuncional.contains(areaFuncional)) {
-            listAreaFuncional.add(areaFuncional);
-            return true;
+        for (AreaFuncional aFuncional : listAreaFuncional) {
+            if (aFuncional.getCodigo() == areaFuncional.getCodigo()) {
+                return false;
+            } else if (Objects.equals(aFuncional.getNombre(), areaFuncional.getNombre())) {
+                return false;
+            }
         }
-        return false;
+        listAreaFuncional.add(areaFuncional);
+        return true;
     }
+
 
     public int searchAreaFuncional(int codigo) {
         for (int i = 0; i < listAreaFuncional.size(); i++) {
@@ -112,7 +117,7 @@ public class Banco {
     }
 
     public int searchAreaFuncional(String nombreAreaFuncional) {
-        for (int i = 0; i < listAreaFuncional.size();i++) {
+        for (int i = 0; i < listAreaFuncional.size(); i++) {
             AreaFuncional area = listAreaFuncional.get(i);
             if (Objects.equals(area.getNombre(), nombreAreaFuncional))
                 return i;
