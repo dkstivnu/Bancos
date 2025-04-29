@@ -66,6 +66,7 @@ public class Main {
 
                     if (banco.searchCuenta(numeroCuenta) != -1) {
                         banco.deleteCuenta(numeroCuenta);
+                        System.out.println("La cuenta se la eliminado exitosamente");
                     } else {
                         System.out.println("** ERROR ** La cuenta que no existe");
                     }
